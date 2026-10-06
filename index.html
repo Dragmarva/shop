@@ -68,7 +68,7 @@
         
         /* === СТИЛІ ДЛЯ КРАСИВОГО МОДАЛЬНОГО ВІКНА === */
         .modal-overlay {
-            display: none; 
+            display: none; /* Приховано за замовчуванням */
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.8);
             z-index: 1000;
@@ -211,9 +211,8 @@
                          `📦 Товар: Обігрівач Air Heater 1200W\n\n` +
                          `👤 Ім'я: ${name}\n` +
                          `📞 Телефон: ${phone}\n\n` +
-                         `✍ Дані доставки (натисни "Відповісти" на це повідомлення):`;
+                         `✍️️ Дані доставки (натисни "Відповісти" на це повідомлення):`;
 
-            // Токен і ID залишаємо ваші
             const token = '8835080403:AAEZYcFnDKMoAQFU4QHIF8BJwULfCImpgc8';
             const chatId = '538576137';
             const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
@@ -221,7 +220,6 @@
             fetch(url)
                 .then(response => {
                     if (response.ok) {
-                        // Показуємо красиве вікно замість alert()
                         modal.style.display = 'flex';
                         document.getElementById('orderForm').reset(); 
                     } else {
@@ -236,6 +234,6 @@
             modal.style.display = 'none';
         });
     </script>
-
+    
 </body>
 </html>
