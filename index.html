@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Керамічний обігрівач Air Heater 1200W</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            text-align: center; 
+            margin: 0; 
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Головний банер */
+        .hero {
+            background: #d90429;
+            padding: 25px 15px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: 'АКЦІЯ -36%';
+            position: absolute;
+            top: 10px;
+            right: -30px;
+            background: #ffb703;
+            color: #000;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        h1 { margin: 0; font-size: 28px; line-height: 1.2; text-transform: uppercase; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
+        .subtitle { font-size: 18px; margin-top: 10px; font-weight: bold; color: #ffb703; }
+        
+        .container { 
+            max-width: 550px; 
+            margin: 0 auto; 
+            padding: 0; 
+            background: white; 
+            box-shadow: 0 0 25px rgba(0,0,0,0.15); 
+        }
+
+        /* Блок дедлайну */
+        .urgency-block {
+            background: #111;
+            color: white;
+            padding: 20px 10px;
+            border-bottom: 5px solid #ffb703;
+        }
+        .urgency-title { color: #ffb703; font-size: 18px; font-weight: bold; margin: 0 0 10px 0; text-transform: uppercase; }
+        
+        .timer-container { display: flex; justify-content: center; gap: 15px; margin-bottom: 15px; }
+        .time-box { background: #222; border: 2px solid #333; border-radius: 8px; padding: 10px 15px; min-width: 60px; }
+        .time-val { font-size: 32px; font-weight: bold; color: #ffb703; line-height: 1; }
+        .time-label { font-size: 12px; color: #aaa; text-transform: uppercase; margin-top: 5px; }
+
+        .stock-alert {
+            background: rgba(217, 4, 41, 0.2);
+            border: 1px solid #d90429;
+            border-radius: 5px;
+            padding: 10px;
+            display: inline-block;
+            font-size: 16px;
+        }
+        .stock-alert span { color: #ffb703; font-size: 20px; font-weight: bold; }
+        .blink { animation: blinker 1.5s linear infinite; }
+
+        /* Галерея */
+        .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 20px; }
+        .gallery img { width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); object-fit: cover; }
+        .gallery .main-img { grid-column: 1 / -1; }
+
+        /* Ціна та Виноска */
+        .price-block { margin: 10px 20px 10px; background: #fffde7; padding: 20px; border-radius: 8px; border: 3px dashed #d90429; display: flex; justify-content: center; align-items: center; gap: 20px; }
+        .price-col { display: flex; flex-direction: column; }
+        .old-price { text-decoration: line-through; color: #888; font-size: 20px; }
+        .new-price { color: #d90429; font-size: 42px; font-weight: 900; line-height: 1; }
+        .price-label { font-size: 14px; font-weight: bold; color: #555; text-transform: uppercase; }
+        
+        .color-note {
+            margin: 0 20px 20px;
+            background: #e3f2fd;
+            border-left: 4px solid #1976d2;
+            padding: 12px;
+            font-size: 14px;
+            color: #0d47a1;
+            text-align: left;
+            border-radius: 4px;
+        }
+
+        /* Контентні блоки */
+        .content-padding { padding: 0 20px; text-align: left; }
+        .text-section { margin: 25px 0; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+        .text-section h3 { color: #111; font-size: 22px; margin-bottom: 15px; text-transform: uppercase; font-weight: 900; }
+        .text-section p { font-size: 15px; color: #444; margin-bottom: 10px; text-align: justify; }
+        
+        .info-box {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #eaeaea;
+        }
+        .info-box h4 { margin: 0 0 10px 0; color: #d90429; font-size: 18px; }
+
+        ul.specs { list-style: none; padding: 0; margin: 0; }
+        ul.specs li { margin-bottom: 12px; padding-left: 25px; position: relative; font-size: 15px; color: #444; }
+        ul.specs li::before { content: '✔'; position: absolute; left: 0; color: #d90429; font-weight: bold; }
+
+        /* Форма */
+        form { 
+            display: flex; 
+            flex-direction: column; 
+            padding: 30px 20px 50px;
+            background: #fff;
+            border-top: 5px solid #d90429;
+        }
+        form h3 { font-size: 26px; text-transform: uppercase; margin: 0 0 10px 0; color: #d90429; }
+        input { 
+            margin: 10px 0; 
+            padding: 18px; 
+            font-size: 18px; 
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            background-color: #fafafa;
+            font-weight: bold;
+        }
+        input:focus { border-color: #ffb703; outline: none; }
+        
+        button { 
+            margin-top: 15px;
+            padding: 22px; 
+            font-size: 22px; 
+            border-radius: 8px;
+            border: none; 
+            background: #ffb703;
+            color: #000; 
+            font-weight: 900;
+            text-transform: uppercase;
+            cursor: pointer; 
+            box-shadow: 0 5px 15px rgba(255, 183, 3, 0.4);
+            animation: pulse-btn 1.5s infinite;
+        }
+        button:hover { background: #e5a400; }
+        
+        @keyframes blinker { 50% { opacity: 0; } }
+        @keyframes pulse-btn {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 183, 3, 0.7); }
+            70% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(255, 183, 3, 0); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <h1>Керамічний обігрівач AIR HEATER</h1>
+        <p class="subtitle">Потужне тепло за 3 секунди!</p>
+    </div>
+
+    <div class="container">
+        
+        <!-- Блок дедлайну -->
+        <div class="urgency-block">
+            <p class="urgency-title">🔥 До кінця акції залишилось:</p>
+            <div class="timer-container">
+                <div class="time-box">
+                    <div class="time-val" id="hours">02</div>
+                    <div class="time-label">Годин</div>
+                </div>
+                <div class="time-box">
+                    <div class="time-val" id="minutes">15</div>
+                    <div class="time-label">Хвилин</div>
+                </div>
+                <div class="time-box">
+                    <div class="time-val" id="seconds">30</div>
+                    <div class="time-label">Секунд</div>
+                </div>
+            </div>
+            <div class="stock-alert">
+                На складі за акційною ціною: <span class="blink">7 шт</span>
+            </div>
+        </div>
+
+        <!-- Галерея -->
+        <div class="gallery">
+            <img src="https://dropt.in.ua/image/cache/catalog/keramichnyy-obihrivach-air-heater-1200w-nastilnyy-teploventy-18826_2-1000x1000.webp" class="main-img" alt="Обігрівач в інтер'єрі">
+            <img src="https://dropt.in.ua/image/cache/catalog/keramichnyy-obihrivach-air-heater-1200w-nastilnyy-teploventy-18826_3-1000x1000.webp" alt="Обігрівач увімкнений">
+            <img src="https://dropt.in.ua/image/cache/catalog/keramichnyy-obihrivach-air-heater-1200w-nastilnyy-teploventy-18826_4-1000x1000.webp" alt="Білий обігрівач Air Heater">
+            <img src="https://dropt.in.ua/image/cache/catalog/keramichnyy-obihrivach-air-heater-1200w-nastilnyy-teploventy-18826_5-1000x1000.webp" alt="Комплектація з коробкою">
+            <img src="https://dropt.in.ua/image/cache/catalog/keramichnyy-obihrivach-air-heater-1200w-nastilnyy-teploventy-18826_6-1000x1000.webp" alt="Колаж характеристик">
+        </div>
+
+        <!-- Ціна -->
+        <div class="price-block">
+            <div class="price-col">
+                <span class="price-label">Звичайна ціна</span>
+                <span class="old-price">1250 грн</span>
+            </div>
+            <div class="price-col">
+                <span class="price-label" style="color: #d90429;">Ціна сьогодні</span>
+                <span class="new-price">799 грн</span>
+            </div>
+        </div>
+
+        <!-- Виноска про колір -->
+        <div class="color-note">
+            <strong>🎨 Увага!</strong> Колір обігрівача (синій, білий або зелений) відправляється випадковим чином і залежить від актуальної партії на складі постачальника.
+        </div>
+
+        <!-- Розширений контент -->
+        <div class="content-padding">
+            
+            <div class="text-section">
+                <h3>Опис приладу</h3>
+                <p><strong>AIR HEATER 1200W</strong> — це компактний електричний тепловентилятор для локального обігріву кімнати, робочого місця, спальні, кабінету або іншої побутової зони. Керамічний PTC-нагрівальний елемент працює в поєднанні з повітряним потоком, не спалюючи кисень.</p>
+                <p>Розмір корпусу всього 20 × 12 × 13 см робить модель надзвичайно зручною для настільного розміщення там, де не хочеться займати простір великим радіатором.</p>
+            </div>
+
+            <div class="text-section">
+                <h3>Детальні характеристики</h3>
+                <ul class="specs">
+                    <li><strong>Тип:</strong> електричний настільний тепловентилятор</li>
+                    <li><strong>Потужність:</strong> два режими (800 Вт та 1200 Вт)</li>
+                    <li><strong>Нагрівальний елемент:</strong> безпечний керамічний PTC</li>
+                    <li><strong>Захист:</strong> від перегріву та відключення при перекиданні</li>
+                    <li><strong>Живлення:</strong> стандартна мережа 220 В</li>
+                    <li><strong>Площа обігріву:</strong> заявлена до 20 м² (залежить від тепловтрат приміщення)</li>
+                    <li><strong>Розмір:</strong> 20 × 12 × 13 см</li>
+                    <li><strong>Матеріал:</strong> термостійкий пластик</li>
+                </ul>
+            </div>
+
+            <div class="text-section">
+                <h3>Для яких приміщень підходить?</h3>
+                <div class="info-box">
+                    <h4>💻 Для робочого місця та офісу</h4>
+                    <p>Компактний розмір дозволяє виділити приладу мінімум площі на столі. Розміщуйте на стійкій поверхні, зберігаючи безпечну відстань від паперів та проводки.</p>
+                </div>
+                <div class="info-box">
+                    <h4>🏠 Для дому та спальні</h4>
+                    <p>Ідеально для додаткового локального обігріву. Можна застосовувати для попереднього прогрівання зони спальні перед сном. Завдяки компактності легко прибрати на зберігання після закінчення холодного сезону.</p>
+                </div>
+            </div>
+
+            <div class="text-section">
+                <h3>Безпека, Догляд та Комплектація</h3>
+                <p><strong>Система відключення:</strong> Прилад має вбудований захист від перегріву, а також систему, яка автоматично вимикає обігрівач при випадковому перекиданні або падінні.</p>
+                <p><strong>Догляд:</strong> Зовнішній корпус можна очищати м'якою сухою тканиною лише після повного остигання та відключення від мережі. Не допускайте потрапляння води та не накривайте працюючий прилад речами.</p>
+                <p><strong>Комплектація:</strong> Настільний обігрівач AIR HEATER 1200W (1 шт), Керівництво з експлуатації, Заводська упаковка.</p>
+            </div>
+
+        </div>
+
+        <form id="orderForm">
+            <h3>Оформити замовлення</h3>
+            <p style="font-size: 15px; color: #555; margin-top: 0; font-weight: bold;">Залиште заявку зараз, щоб зафіксувати ціну зі знижкою!</p>
+            
+            <input type="text" id="name" placeholder="Введіть ваше ім'я" required>
+            <input type="tel" id="phone" placeholder="Ваш номер телефону" required>
+            <button type="submit">Замовити зі знижкою</button>
+            <p style="font-size: 13px; color: #888; font-weight: bold; margin-top: 15px;">Оплата тільки ПІСЛЯ огляду на Новій Пошті. Жодних ризиків!</p>
+        </form>
+
+    </div>
+
+    <script>
+        // Таймер
+        let timeRemaining = 2 * 3600 + 15 * 60 + 30; 
+        const elHours = document.getElementById('hours');
+        const elMinutes = document.getElementById('minutes');
+        const elSeconds = document.getElementById('seconds');
+
+        setInterval(() => {
+            if(timeRemaining > 0) timeRemaining--;
+            let h = Math.floor(timeRemaining / 3600);
+            let m = Math.floor((timeRemaining % 3600) / 60);
+            let s = timeRemaining % 60;
+            
+            elHours.innerText = h.toString().padStart(2, '0');
+            elMinutes.innerText = m.toString().padStart(2, '0');
+            elSeconds.innerText = s.toString().padStart(2, '0');
+        }, 1000);
+
+        // Відправка форми
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            
+            const text = `🔥 УВАГА! НОВЕ ЗАМОВЛЕННЯ!\nТовар: Обігрівач Air Heater 1200W, ціна 799 грн\nІм'я: ${name}\nТелефон: ${phone}`;
+
+            const token = '8835080403:AAEZYcFnDKMoAQFU4QHIF8BJwULfCImpgc8';
+            const chatId = '538576137';
+            const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
+
+            fetch(url)
+                .then(response => {
+                    if (response.ok) {
+                        alert("Супер! Ваша заявка прийнята. Тримайте телефон поруч, менеджер з вами зв'яжеться протягом 10 хвилин! (з 10:00 по 20:00)");
+                        document.getElementById('orderForm').reset(); 
+                    } else {
+                        alert('Помилка. Спробуйте ще раз.');
+                    }
+                })
+                .catch(error => console.error('Помилка:', error));
+        });
+    </script>
+
+</body>
+</html>
